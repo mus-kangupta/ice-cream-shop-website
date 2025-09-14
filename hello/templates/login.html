@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login {% endblock %}
+{% block body %}
+<div class="d-flex justify-content-center align-items-center" 
+     style="min-height: 100vh; 
+            background-image: url('{% static "login1.webp" %}'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;">
+    <div class="container mt-5" style="max-width: 400px;">
+        <h2 class="text-center">Login</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Login</button>
+        </form>
+        <p style="margin-top: 10px;">
+            Don't have an account? 
+            <a href="{% url 'register' %}">Register</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

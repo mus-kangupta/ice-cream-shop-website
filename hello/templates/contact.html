@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} Contact us {% endblock title %} Home 
+{% block body %}
+<div class="container-fluid px-0">
+    <img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"  height= 450 class="d-block w-100" alt="..">
+</div>
+<div class="container">
+    <h3 style="text-align: center; margin-top: 30px">Contact us</h3>
+<form method="post" action="/contact">
+    {% csrf_token %}<!-- this is crf token so the web server know service  is req coming to the right person-->
+    <div class="mb-3">
+  <label for="name" class="form-label">Name</label>
+  <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+    </div>
+    <div class="mb-3">
+  <label for="exampleFormControlInput1">Email address</label>
+  <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email">
+    </div>
+
+    <label for="phone" >Phone number</label>
+  <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter your phone number" style="max-width:250px;">
+
+<div class="mb-3">
+  <label for="desc">Tell me what you want me to connect for...</label>
+  <textarea class="form-control" id="desc" name="desc" rows="5"></textarea>
+</div>
+
+    <div style="display: flex; justify-content: center; margin-top: 20px;">
+  <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+
+
+</div>
+{% endblock body %}
